@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Vezu - Portfólio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .card {
+      background: #0b1220;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #22c55e;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #22c55e;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #cbd5e1;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      background: #22c55e;
+      color: #0f172a;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .contact {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    .contact strong {
+      color: #22c55e;
+    }
+
+    /* ===== Seção Projetos ===== */
+    .projects {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #22c55e;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: left;
+      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      color: #22c55e;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #22c55e;
+      transition: color 0.3s;
+    }
+
+    .project-card a:hover {
+      color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Foto de Perfil -->
+      <img src="perfil.jpg" alt="Foto de Gabriel Vezu" class="profile-img">
+
+      <h1>👋 Olá, eu sou Gabriel Vezu</h1>
+      <p>Estudante de Sistemas de Informação | Desenvolvedor Java & Spring Boot</p>
+
+      <div class="links">
+        <a href="https://github.com/gabrielvezu" target="_blank">💻 GitHub</a>
+        <a href="https://linkedin.com/in/seu-linkedin" target="_blank">🔗 LinkedIn</a>
+        <a href="curriculo.pdf" target="_blank">📄 Currículo</a>
+      </div>
+
+      <div class="contact">
+        <p><strong>Email:</strong> gabrielvezusonego1004@gmail.com</p>
+        <p><strong>Telefone:</strong> (XX) XXXXX-XXXX</p>
+      </div>
+
+      <!-- Projetos -->
+      <div class="projects">
+        <h2>🚀 Projetos em Destaque</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Sistema de Mecânica</h3>
+            <p>Aplicação Java com Spring Boot e MySQL para gestão de serviços em oficinas mecânicas.</p>
+            <a href="https://github.com/gabrielvezu/garagemautobot" target="_blank">🔗 Ver no GitHub</a>
+          </div>
+
+          <div class="project-card">
+            <h3>Gestão de Estoque</h3>
+            <p>App desenvolvido no Kodular utilizando SQLite para controle de estoque simples e prático.</p>
+            <a href="https://github.com/gabrielvezu" target="_blank">🔗 Ver no GitHub</a>
+          </div>
+
+          <div class="project-card">
+            <h3>DSList</h3>
+            <p>Projeto acadêmico em Java com Spring Boot para gerenciamento de listas de jogos.</p>
+            <a href="https://github.com/Vezu0410/dslist" target="_blank">🔗 Ver no GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
