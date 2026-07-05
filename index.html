@@ -1,195 +1,1412 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel Vezú - Portfólio</title>
+  <meta name="description" content="Portfólio profissional de Gabriel Vezú Sonego: desenvolvimento Java, infraestrutura de TI, suporte, Bitrix24, automações e criação de produtos.">
+  <meta name="theme-color" content="#09110f">
+  <title>Gabriel Vezú Sonego | Portfólio de TI</title>
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #09110f;
+      --bg-strong: #050806;
+      --surface: #101820;
+      --surface-soft: #142026;
+      --surface-warm: #1a1712;
+      --line: rgba(231, 238, 232, 0.13);
+      --line-strong: rgba(231, 238, 232, 0.23);
+      --text: #edf4ee;
+      --muted: #aab7b0;
+      --subtle: #748078;
+      --teal: #35d2c2;
+      --green: #84cc16;
+      --amber: #f59e0b;
+      --rose: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --max: 1180px;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f1f5f9;
       min-height: 100vh;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(145deg, #09110f 0%, #0d1717 38%, #15140e 100%);
+      background-size: 42px 42px, 42px 42px, auto;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(5, 8, 6, 0.06), rgba(5, 8, 6, 0.82)),
+        linear-gradient(90deg, rgba(53, 210, 194, 0.10), transparent 28%, transparent 72%, rgba(245, 158, 11, 0.08));
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 24px;
+      top: -80px;
+      z-index: 50;
+      border-radius: 6px;
+      background: var(--teal);
+      color: #00110f;
+      font-weight: 800;
+      padding: 10px 14px;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 18px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 8, 6, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 72px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .container {
-      max-width: 1000px;
-      width: 100%;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: fit-content;
     }
 
-    .card {
-      background: #0b1220;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      transition: transform 0.3s ease;
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(53, 210, 194, 0.38);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, rgba(53, 210, 194, 0.18), rgba(245, 158, 11, 0.12));
+      color: var(--teal);
+      font-weight: 900;
     }
 
-    .card:hover {
-      transform: scale(1.01);
+    .brand-text {
+      display: grid;
+      line-height: 1.2;
     }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
+    .brand-text strong {
+      font-size: 0.98rem;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      outline: none;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section:nth-of-type(even) {
+      background: rgba(5, 8, 6, 0.24);
+      border-block: 1px solid rgba(231, 238, 232, 0.07);
+    }
+
+    .section-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: auto;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      padding: 84px 0 64px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 74px max(16px, calc((100vw - var(--max)) / 2)) auto auto;
+      width: min(520px, 42vw);
+      height: 390px;
+      border: 1px solid rgba(53, 210, 194, 0.22);
+      background:
+        linear-gradient(180deg, rgba(16, 24, 32, 0.82), rgba(10, 16, 18, 0.58)),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 38px);
+      box-shadow: var(--shadow);
+      transform: skewY(-2deg);
+    }
+
+    .hero::after {
+      content: "Spring Boot  |  Docker  |  Bitrix24  |  MySQL  |  Nginx";
+      position: absolute;
+      right: max(24px, calc((100vw - var(--max)) / 2 + 36px));
+      top: 150px;
+      width: min(430px, 38vw);
+      border-top: 1px solid rgba(132, 204, 22, 0.45);
+      color: rgba(237, 244, 238, 0.42);
+      font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+      font-size: 0.82rem;
+      padding-top: 16px;
+      transform: skewY(-2deg);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 740px);
+      gap: 34px;
+    }
+
+    .avatar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border: 2px solid rgba(53, 210, 194, 0.5);
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
-      border: 4px solid #22c55e;
-      box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+      background: var(--surface);
+      box-shadow: 0 14px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .availability {
+      display: grid;
+      gap: 4px;
+    }
+
+    .availability span:first-child {
+      color: var(--teal);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .availability span:last-child {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.1;
+      text-wrap: balance;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      color: #22c55e;
+      max-width: 850px;
+      font-size: clamp(2.8rem, 8vw, 6.7rem);
+      font-weight: 900;
     }
 
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #cbd5e1;
+    .hero-lede {
+      max-width: 760px;
+      color: #d5ddd8;
+      font-size: clamp(1.08rem, 2vw, 1.38rem);
     }
 
-    .links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      border-radius: 10px;
+    .hero-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      min-height: 46px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text);
+      font-weight: 850;
+      padding: 11px 16px;
       text-decoration: none;
-      font-weight: bold;
-      background: #22c55e;
-      color: #0f172a;
-      transition: 0.3s;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
-    .links a:hover {
-      background: #16a34a;
-      color: #fff;
+    .btn:hover,
+    .btn:focus-visible {
+      border-color: rgba(53, 210, 194, 0.62);
+      transform: translateY(-2px);
+      outline: none;
     }
 
-    .contact {
-      margin-top: 25px;
-      font-size: 0.95rem;
-      color: #94a3b8;
+    .btn-primary {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #00110f;
     }
 
-    .contact strong {
-      color: #22c55e;
+    .btn-dark {
+      background: rgba(16, 24, 32, 0.78);
     }
 
-    /* ===== Seção Projetos ===== */
-    .projects {
-      margin-top: 40px;
-      text-align: center;
+    .btn svg,
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
     }
 
-    .projects h2 {
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+      max-width: 920px;
+    }
+
+    .quick-facts + .about-grid {
+      margin-top: 28px;
+    }
+
+    .fact {
+      min-height: 104px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.72);
+      padding: 16px;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 18px;
+      color: #d8e0dc;
+      font-size: 1.04rem;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .signal {
+      min-height: 142px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.72);
+      padding: 18px;
+    }
+
+    .signal .metric {
+      color: var(--amber);
+      display: block;
       font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #22c55e;
+      font-weight: 950;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .signal strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .signal p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.76);
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 24px;
+      padding: 22px;
+    }
+
+    .timeline-date {
+      color: var(--green);
+      font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .timeline-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-body p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .clean-list {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .clean-list li {
+      color: #d8e0dc;
+      display: grid;
+      grid-template-columns: 16px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .clean-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin-top: 10px;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .skill-groups {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skill-card,
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.78);
+      padding: 18px;
+    }
+
+    .skill-card h3,
+    .project-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 9px;
+    }
+
+    .skill-card p,
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      color: #dce6e1;
+      font-size: 0.92rem;
+      font-weight: 750;
+      padding: 8px 11px;
+      white-space: nowrap;
+    }
+
+    .tag-accent {
+      border-color: rgba(245, 158, 11, 0.45);
+      color: #ffd28a;
+    }
+
+    .product-section {
+      background:
+        linear-gradient(90deg, rgba(53, 210, 194, 0.09), transparent 38%),
+        linear-gradient(180deg, rgba(26, 23, 18, 0.8), rgba(9, 17, 15, 0.82));
+      border-block: 1px solid rgba(245, 158, 11, 0.13);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(360px, 1.06fr);
+      gap: 30px;
+      align-items: center;
+    }
+
+    .product-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .status-pill {
+      width: fit-content;
+      border: 1px solid rgba(132, 204, 22, 0.44);
+      border-radius: 999px;
+      color: #d9ff9a;
+      font-size: 0.78rem;
+      font-weight: 900;
+      padding: 7px 10px;
+      text-transform: uppercase;
+    }
+
+    .product-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .product-copy p {
+      color: #d8e0dc;
+    }
+
+    .product-points {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .product-points li {
+      border-left: 3px solid var(--amber);
+      padding-left: 12px;
+    }
+
+    .product-preview {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      background: #0d1318;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .preview-topbar {
+      min-height: 46px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .window-dots span:nth-child(2) {
+      background: var(--amber);
+    }
+
+    .window-dots span:nth-child(3) {
+      background: var(--green);
+    }
+
+    .preview-title {
+      color: var(--muted);
+      font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+      font-size: 0.82rem;
+    }
+
+    .preview-body {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      min-height: 390px;
+    }
+
+    .preview-sidebar {
+      border-right: 1px solid rgba(255, 255, 255, 0.09);
+      background: #0a1014;
+      padding: 18px 14px;
+    }
+
+    .preview-logo {
+      border: 1px solid rgba(53, 210, 194, 0.24);
+      border-radius: 8px;
+      color: var(--teal);
+      font-weight: 950;
+      margin-bottom: 22px;
+      padding: 12px;
+    }
+
+    .preview-menu {
+      display: grid;
+      gap: 9px;
+    }
+
+    .preview-menu span {
+      height: 32px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .preview-menu span:first-child {
+      background: rgba(53, 210, 194, 0.16);
+    }
+
+    .preview-main {
+      padding: 18px;
+    }
+
+    .preview-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .preview-kpi {
+      min-height: 82px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px;
+    }
+
+    .preview-kpi span {
+      display: block;
+      width: 48px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      margin-bottom: 15px;
+    }
+
+    .preview-kpi strong {
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+
+    .service-table {
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .service-row {
+      min-height: 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.7fr 0.6fr;
+      gap: 12px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 13px;
+    }
+
+    .service-row:last-child {
+      border-bottom: 0;
+    }
+
+    .service-row span {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .service-row span:nth-child(2) {
+      background: rgba(53, 210, 194, 0.25);
+    }
+
+    .service-row span:nth-child(3) {
+      background: rgba(245, 158, 11, 0.25);
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .project-card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: left;
-      transition: transform 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-card h3 {
-      color: #22c55e;
-      margin-bottom: 10px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
 
     .project-card p {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      margin-bottom: 15px;
+      flex: 1;
     }
 
-    .project-card a {
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mini-tag {
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #dce6e1;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 6px 8px;
+    }
+
+    .project-link {
+      width: fit-content;
+      border-bottom: 1px solid rgba(53, 210, 194, 0.55);
+      color: var(--teal);
+      font-weight: 850;
       text-decoration: none;
-      font-weight: bold;
-      color: #22c55e;
-      transition: color 0.3s;
     }
 
-    .project-card a:hover {
-      color: #16a34a;
+    .project-link:hover,
+    .project-link:focus-visible {
+      color: #a8fff6;
+      outline: none;
+    }
+
+    .project-link-muted {
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+      color: var(--muted);
+      cursor: default;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .education-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.76);
+      padding: 18px;
+    }
+
+    .education-item span {
+      color: var(--green);
+      display: block;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .education-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .education-item p {
+      color: var(--muted);
+    }
+
+    .contact-band {
+      border-top: 1px solid var(--line);
+      background: #050806;
+      padding: 72px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.7fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-grid h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-grid p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .contact-list {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(16, 24, 32, 0.68);
+      display: grid;
+      padding: 12px;
+    }
+
+    .contact-list a,
+    .contact-list span {
+      border-radius: 6px;
+      color: #d8e0dc;
+      padding: 10px 12px;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-list a:hover,
+    .contact-list a:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 0.9rem;
+      padding: 22px 0;
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero::before,
+      .hero::after {
+        opacity: 0.26;
+        width: 70vw;
+      }
+
+      .quick-facts,
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid,
+      .skills-layout,
+      .product-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-grid {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        min-height: auto;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 4px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        flex: 0 0 auto;
+        font-size: 0.84rem;
+        white-space: nowrap;
+        padding-inline: 8px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 42px 0 40px;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 13vw, 3.8rem);
+      }
+
+      .quick-facts,
+      .signal-grid,
+      .education-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .product-preview {
+        margin-inline: -4px;
+      }
+
+      .preview-body {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-sidebar {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      }
+
+      .preview-menu {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .preview-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .service-row {
+        grid-template-columns: 1fr 0.7fr;
+      }
+
+      .service-row span:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>👋 Olá, eu sou Gabriel Vezú</h1>
-      <p>Estudante de Sistemas de Informação | Desenvolvedor Java & Spring Boot</p>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-      <div class="links">
-        <a href="https://github.com/Vezu0410" target="_blank">💻 GitHub</a>
-        <a href="https://www.linkedin.com/in/gabrielvezusonego" target="_blank">🔗 LinkedIn</a>
-        <a href="currículo.pdf" target="_blank">📄 Currículo</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Início">
+        <span class="brand-mark">GV</span>
+        <span class="brand-text">
+          <strong>Gabriel Vezú</strong>
+          <span>TI, produtos e automação</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#mecanikas">Mecanikas</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
       </div>
+    </nav>
+  </header>
 
-      <div class="contact">
-        <p><strong>Email:</strong> gabrielvezusonego1004@gmail.com</p>
-        <p><strong>Telefone:</strong> +55 41 99980-3112</p>
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+      <div class="section-inner hero-inner">
+        <div class="avatar-row">
+          <img class="avatar" src="https://github.com/Vezu0410.png?size=240" alt="Foto de perfil de Gabriel Vezú Sonego">
+          <div class="availability">
+            <span>Curitiba, PR</span>
+            <span>Desenvolvimento Java, suporte e infraestrutura de TI</span>
+          </div>
+        </div>
+
+        <p class="eyebrow">Portfólio profissional</p>
+        <h1 id="titulo-principal">Gabriel Vezú Sonego</h1>
+        <p class="hero-lede">
+          Profissional de tecnologia com base em desenvolvimento backend, sustentação de sistemas,
+          automação de processos e infraestrutura. Formado em Análise e Desenvolvimento de Sistemas
+          e cursando Sistemas de Informação.
+        </p>
+
+        <div class="hero-actions" aria-label="Ações principais">
+          <a class="btn btn-primary" href="curriculo.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Baixar currículo
+          </a>
+          <a class="btn btn-dark" href="https://github.com/Vezu0410" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 19c-4 1.2-4-2-5-2m10 5v-3.5c0-1 .1-1.4-.5-2 2.7-.3 5.5-1.3 5.5-6A4.7 4.7 0 0 0 17.7 7c.1-.3.5-1.7-.1-3.2 0 0-1.1-.3-3.6 1.3a12.4 12.4 0 0 0-6.5 0C5 3.5 3.9 3.8 3.9 3.8 3.3 5.3 3.7 6.7 3.8 7A4.7 4.7 0 0 0 2.5 10.5c0 4.7 2.8 5.7 5.5 6-.4.4-.6 1-.6 1.9V22" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+
       </div>
-      <!-- Projetos -->
-      <div class="projects">
-        <h2>🚀 Projetos em Destaque</h2>
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>Sistema de Mecânica</h3>
-            <p>Aplicação Java com Spring Boot e MySQL para gestão de serviços em oficinas mecânicas.</p>
-            <a href="https://github.com/Vezu0410/mecanica" target="_blank">🔗 Ver no GitHub</a>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Sobre</p>
+          <h2>Perfil técnico com foco em resolver operação real.</h2>
+          <p>
+            Atuação conectando suporte, infraestrutura, desenvolvimento e melhoria de processos.
+            Experiência prática com sistemas internos, clientes, automações e criação de soluções para negócios.
+          </p>
+        </div>
+
+        <div class="quick-facts" aria-label="Resumo rápido">
+          <div class="fact">
+            <strong>ADS concluído</strong>
+            <span>Formação superior pela Facear entre 2022 e 2025.</span>
+          </div>
+          <div class="fact">
+            <strong>SI em andamento</strong>
+            <span>8º período de Sistemas de Informação.</span>
+          </div>
+          <div class="fact">
+            <strong>Inglês avançado</strong>
+            <span>Formação pela Rockfeller Idiomas.</span>
+          </div>
+          <div class="fact">
+            <strong>Mecanikas</strong>
+            <span>Produto próprio para gestão de oficinas.</span>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              Minha trajetória combina base técnica de desenvolvimento com vivência em ambientes de produção:
+              monitoramento de sistemas, manutenção de computadores, suporte a usuários, integrações,
+              formulários, webhooks, dashboards e sustentação de plataformas.
+            </p>
+            <p>
+              Tenho interesse direto em infraestrutura de TI, backend Java, produtos digitais e treinamento
+              de IA. O objetivo é trabalhar em projetos onde tecnologia precisa gerar estabilidade,
+              produtividade e clareza para quem opera o negócio.
+            </p>
           </div>
 
-          <div class="project-card">
-            <h3>Gestão de Estoque</h3>
-            <p>App desenvolvido no Kodular utilizando SQLite para controle de estoque simples e prático.</p>
-            <a href="https://github.com/Vezu0410" target="_blank">🔗 Ver no GitHub</a>
-          </div>
-
-          <div class="project-card">
-            <h3>DSList</h3>
-            <p>Projeto acadêmico em Java com Spring Boot para gerenciamento de listas de jogos.</p>
-            <a href="https://github.com/Vezu0410/dslist" target="_blank">🔗 Ver no GitHub</a>
+          <div class="signal-grid">
+            <div class="signal">
+              <span class="metric">01</span>
+              <strong>Desenvolvimento</strong>
+              <p>Java, Spring Boot, Maven, Hibernate, Thymeleaf, MySQL e documentação de requisitos.</p>
+            </div>
+            <div class="signal">
+              <span class="metric">02</span>
+              <strong>Infraestrutura</strong>
+              <p>Montagem e manutenção de computadores, Windows, Thin Client, VPS, Docker e Nginx.</p>
+            </div>
+            <div class="signal">
+              <span class="metric">03</span>
+              <strong>Automação</strong>
+              <p>Scripts, webhooks, formulários, Bitrix24, Power BI e melhoria de fluxos operacionais.</p>
+            </div>
+            <div class="signal">
+              <span class="metric">04</span>
+              <strong>Produto</strong>
+              <p>Criação do Mecanikas, CRM/SaaS voltado para gestão e rotina de oficinas mecânicas.</p>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
+    <section class="section" id="experiencia">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Experiência</p>
+          <h2>Vivência em sustentação, operação e tecnologia aplicada.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2026 - atual</div>
+            <div class="timeline-body">
+              <h3>Advocacia Escalável</h3>
+              <p>Estagiário de suporte e sustentação - Bitrix24</p>
+              <ul class="clean-list">
+                <li>Suporte a clientes dentro da plataforma Bitrix24, com acompanhamento de demandas e sustentação da operação.</li>
+                <li>Criação de produtos e soluções para escritórios de advocacia.</li>
+                <li>Atualização, criação e alterações em painéis de Power BI.</li>
+                <li>Criação de formulários, scripts e webhooks para fluxos dentro do Bitrix24.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2024 - 2025</div>
+            <div class="timeline-body">
+              <h3>Tortuga Produtos de Borracha LTDA</h3>
+              <p>Jovem Aprendiz PCP</p>
+              <ul class="clean-list">
+                <li>Monitoramento de sistemas usados pela produção, incluindo balanças, controle de produção e ERPs.</li>
+                <li>Manutenção de computadores via Thin Client e atendimento de chamados.</li>
+                <li>Apoio em ambiente Windows e manutenção de impressoras Zebra.</li>
+                <li>Configuração de computadores e suporte técnico ao fluxo produtivo.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section product-section" id="mecanikas">
+      <div class="section-inner product-grid">
+        <div class="product-copy">
+          <span class="status-pill">Produto próprio | Repositório privado</span>
+          <h2>Mecanikas, CRM/SaaS para gestão de oficinas.</h2>
+          <p>
+            O Mecanikas é um produto próprio criado para organizar processos de oficinas mecânicas,
+            com foco em controle operacional, atendimento e gestão de serviços. Por ser um produto
+            estratégico, o código e o repositório permanecem privados.
+          </p>
+          <ul class="product-points">
+            <li>Arquitetura web com foco em rotinas de oficina, cadastros, ordens e acompanhamento.</li>
+            <li>Base técnica alinhada a Java, Spring Boot, Thymeleaf, MySQL, Docker, Nginx e VPS.</li>
+            <li>Experiência prática de produto: da ideia e requisitos até implantação e evolução.</li>
+          </ul>
+        </div>
+
+        <div class="product-preview" aria-label="Representação visual do painel do Mecanikas">
+          <div class="preview-topbar">
+            <div class="window-dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="preview-title">mecanikas.app / painel</div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-sidebar">
+              <div class="preview-logo">Mecanikas</div>
+              <div class="preview-menu" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="preview-main">
+              <div class="preview-kpis" aria-hidden="true">
+                <div class="preview-kpi">
+                  <span></span>
+                  <strong>18</strong>
+                </div>
+                <div class="preview-kpi">
+                  <span></span>
+                  <strong>42</strong>
+                </div>
+                <div class="preview-kpi">
+                  <span></span>
+                  <strong>96%</strong>
+                </div>
+              </div>
+              <div class="service-table" aria-hidden="true">
+                <div class="service-row"><span></span><span></span><span></span></div>
+                <div class="service-row"><span></span><span></span><span></span></div>
+                <div class="service-row"><span></span><span></span><span></span></div>
+                <div class="service-row"><span></span><span></span><span></span></div>
+                <div class="service-row"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="competencias">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Competências</p>
+          <h2>Stack orientada a sistemas, sustentação e entrega.</h2>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skill-groups">
+            <article class="skill-card">
+              <h3>Backend e sistemas web</h3>
+              <p>Construção de aplicações com Java, Spring Boot, Maven, Hibernate, Thymeleaf, XML e MySQL.</p>
+            </article>
+            <article class="skill-card">
+              <h3>Operação e infraestrutura</h3>
+              <p>Manutenção, ambiente Windows, Thin Client, impressoras Zebra, Docker, Nginx, VPS e suporte técnico.</p>
+            </article>
+            <article class="skill-card">
+              <h3>Processos e dados</h3>
+              <p>Bitrix24, webhooks, formulários, scripts, Power BI, documentação e escrita de requisitos.</p>
+            </article>
+          </div>
+
+          <div class="stack" aria-label="Tecnologias e ferramentas">
+            <span class="tag tag-accent">Java</span>
+            <span class="tag tag-accent">Spring Boot</span>
+            <span class="tag">Maven</span>
+            <span class="tag">Hibernate</span>
+            <span class="tag">Thymeleaf</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Banco de dados relacional</span>
+            <span class="tag">XML</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">VPS</span>
+            <span class="tag">Bitrix24</span>
+            <span class="tag">Webhooks</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Thin Client</span>
+            <span class="tag">Suporte técnico</span>
+            <span class="tag">Documentação</span>
+            <span class="tag">Inglês avançado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Projetos</p>
+          <h2>Projetos e entregas que mostram a base técnica.</h2>
+          <p>
+            Inclui produtos próprios, projetos acadêmicos e entregas internas. Links públicos aparecem apenas
+            quando o repositório pode ser compartilhado.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div>
+              <h3>Mecanikas</h3>
+              <p>CRM/SaaS de gestão de oficina, com foco em operação, atendimento e controle de serviços.</p>
+            </div>
+            <div class="project-meta">
+              <span class="mini-tag">Java</span>
+              <span class="mini-tag">Spring Boot</span>
+              <span class="mini-tag">MySQL</span>
+              <span class="mini-tag">Docker</span>
+            </div>
+            <span class="project-link project-link-muted">Repositório privado</span>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>DSList</h3>
+              <p>API Java/Spring para organização de listas de jogos, com estrutura backend e modelagem relacional.</p>
+            </div>
+            <div class="project-meta">
+              <span class="mini-tag">Java</span>
+              <span class="mini-tag">Spring Boot</span>
+              <span class="mini-tag">Backend</span>
+            </div>
+            <a class="project-link" href="https://github.com/Vezu0410/dslist" target="_blank" rel="noopener">Ver repositório</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <h3>Automações Bitrix24</h3>
+              <p>Formulários, scripts, webhooks e ajustes de fluxos para melhorar rotinas de atendimento e sustentação.</p>
+            </div>
+            <div class="project-meta">
+              <span class="mini-tag">Bitrix24</span>
+              <span class="mini-tag">Webhooks</span>
+              <span class="mini-tag">Power BI</span>
+            </div>
+            <span class="project-link project-link-muted">Entrega interna</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formacao">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Formação</p>
+          <h2>Base acadêmica em tecnologia e comunicação.</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-item">
+            <span>2022 - 2025</span>
+            <h3>Análise e Desenvolvimento de Sistemas</h3>
+            <p>Facear - ensino superior concluído.</p>
+          </article>
+          <article class="education-item">
+            <span>2026 - atual</span>
+            <h3>Sistemas de Informação</h3>
+            <p>Facear - graduação em andamento, 8º período informado no currículo.</p>
+          </article>
+          <article class="education-item">
+            <span>2026 - em curso</span>
+            <h3>Pós-graduação</h3>
+            <p>Formação complementar em andamento.</p>
+          </article>
+          <article class="education-item">
+            <span>2021 - 2024</span>
+            <h3>Inglês</h3>
+            <p>Rockfeller Idiomas - nível avançado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contato">
+      <div class="section-inner contact-grid">
+        <div>
+          <p class="eyebrow">Contato</p>
+          <h2>Disponível para oportunidades e conversas técnicas.</h2>
+          <p>
+            Se o objetivo for desenvolvimento, suporte, infraestrutura, automação ou sustentação de sistemas,
+            estes são os canais mais diretos para contato.
+          </p>
+          <div class="contact-actions" style="margin-top: 24px;">
+            <a class="btn btn-primary" href="mailto:gabrielvezusonego1004@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Enviar e-mail
+            </a>
+            <a class="btn btn-dark" href="tel:+5541999803112">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Ligar
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-list" aria-label="Links de contato">
+          <a href="mailto:gabrielvezusonego1004@gmail.com">gabrielvezusonego1004@gmail.com</a>
+          <a href="tel:+5541999803112">(41) 99980-3112</a>
+          <a href="https://www.linkedin.com/in/gabrielvezusonego" target="_blank" rel="noopener">linkedin.com/in/gabrielvezusonego</a>
+          <a href="https://github.com/Vezu0410" target="_blank" rel="noopener">github.com/Vezu0410</a>
+          <span>Instagram: @gabriel_vezu</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Gabriel Vezú Sonego. Portfólio profissional de TI.</span>
+      <span>Curitiba, Paraná, Brasil.</span>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
-
-
-
-
-
-
